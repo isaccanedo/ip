@@ -2,9 +2,9 @@
 
 > A simple webpage displaying IP address information using [Cloudflare](https://www.cloudflare.com/) endpoint.
 
-## Example
+## Executar
 
-[https://github.com/isaccanedo/ip](https://github.com/isaccanedo/ip)
+[https://isaccanedo.github.io/ip/](https://isaccanedo.github.io/ip/)
 
 ## License
 
