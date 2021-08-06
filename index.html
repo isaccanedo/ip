@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-language" content="en-us">
+  <meta name="description" content="IP address">
+  <meta name="keywords" content="ip, ip address, cloudflare">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="application-name" content="IP">
+  <title>IP</title>
+  <style>
+    body {
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <output id="output"></output>
+  <script>
+    const output = document.getElementById('output')
+    function update() {
+      const url = 'https://www.cloudflare.com/cdn-cgi/trace'
+      fetch(url)
+      .then(res => res.text())
+      .then(text => {
+        const lines = text.split('\n')
+        const obj = lines.reduce((acc, line) => {
+          const kv = line.split('=')
+          acc[kv[0]] = kv[1]
+          return acc
+        }, {})
+        const ip = obj['ip']
+        const loc = obj['loc']
+        output.innerHTML = lines.join('<br>')
+        window.document.title = `IP ${ip || ''} ${loc ? `(${loc})` : ''}`
+      })
+      .catch(err => {
+        output.innerHTML = err.message
+        window.document.title = 'IP (error)'
+      })
+      .finally(() => {
+        setTimeout(() => {
+          update()
+        }, 10 * 1000)
+      })
+    }
+
+    update()
+</script>
+<a href="https://github.com/isaccanedo/ip" target="_blank"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+<body>
+</html>
