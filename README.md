@@ -4,7 +4,7 @@
 
 ## Example
 
-[https://lab.miguelmota.com/ip](https://lab.miguelmota.com/ip)
+[https://github.com/isaccanedo/ip](https://github.com/isaccanedo/ip)
 
 ## License
 
