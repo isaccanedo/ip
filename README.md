@@ -5,7 +5,3 @@
 ## Executar
 
 [https://isaccanedo.github.io/ip/](https://isaccanedo.github.io/ip/)
-
-## License
-
-[MIT](LICENSE)
