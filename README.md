@@ -1,6 +1,6 @@
 # IP Address
 
-> A simple webpage displaying IP address information using [Cloudflare](https://www.cloudflare.com/) endpoint.
+> Uma página da web simples exibindo informações de endereço IP usando endpoint Cloudflare [Cloudflare](https://www.cloudflare.com/)
 
 ## Executar
 
